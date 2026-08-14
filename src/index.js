@@ -18,3 +18,4 @@ ReactDOM.render(
 
 
 reportWebVitals();
+import 'slick-carousel/slick/slick.css';
