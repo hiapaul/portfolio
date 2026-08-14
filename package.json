@@ -8,16 +8,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hiapaul/Portfolio.git"
+    "url": "git+https://github.com/hiapaul/portfolio.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/hiapaul/Portfolio/issues"
+    "url": "https://github.com/hiapaul/portfolio/issues"
   },
-  "homepage": "https://github.com/hiapaul/Portfolio#readme",
+  "homepage": "https://github.com/hiapaul/portfolio#readme",
   "dependencies": {
     "axios": "^1.19.0",
     "react": "^19.2.8",
