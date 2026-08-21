@@ -140,16 +140,30 @@ function Contacts() {
                     message: message,
                 };
 
-                axios.post(contactsData.sheetAPI, responseData).then((res) => {
-                    console.log('success');
+                if (contactsData.sheetAPI) {
+                    axios.post(contactsData.sheetAPI, responseData).then((res) => {
+                        console.log('success');
+                        setSuccess(true);
+                        setErrMsg('');
+
+                        setName('');
+                        setEmail('');
+                        setMessage('');
+                        setOpen(false);
+                    }).catch((err) => {
+                        console.error('Error sending message:', err);
+                        setErrMsg('Failed to send message. Please try again.');
+                        setOpen(true);
+                    });
+                } else {
+                    console.log('Message sent (demo mode):', responseData);
                     setSuccess(true);
                     setErrMsg('');
-
                     setName('');
                     setEmail('');
                     setMessage('');
                     setOpen(false);
-                });
+                }
             } else {
                 setErrMsg('Invalid email');
                 setOpen(true);
@@ -176,7 +190,7 @@ function Contacts() {
                                     Name
                                 </label>
                                 <input
-                                    placeholder='John Doe'
+                                    placeholder='Enter your full name'
                                     value={name}
                                     onChange={(e) => setName(e.target.value)}
                                     type='text'
@@ -192,7 +206,7 @@ function Contacts() {
                                     Email
                                 </label>
                                 <input
-                                    placeholder='John@doe.com'
+                                    placeholder='your@email.com'
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     type='email'
@@ -208,7 +222,7 @@ function Contacts() {
                                     Message
                                 </label>
                                 <textarea
-                                    placeholder='Type your message....'
+                                    placeholder='Write your message here...'
                                     value={message}
                                     onChange={(e) => setMessage(e.target.value)}
                                     type='text'
